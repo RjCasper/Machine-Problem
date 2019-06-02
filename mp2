@@ -1,0 +1,91 @@
+#include <iostream> // initializing iostream for program functions.
+#include <conio.h> // initializing conio.h for MS-DOS compiler.
+#include <cmath> // initializing cmath for mathematical functions
+#include <iomanip> // initializing iomanip for manipulator functions
+using namespace std; // scope for variable definitions
+
+int main() // for process.
+{
+
+	double sideA, sideB, sideC, SemiPer, Area, Perimeter; // citation of variables for sides of triangles including semi-perimeter, area, and perimeter.
+	double angleA, angleB, angleC, longest, Circumcenter, Apothem; // citation for variables for angles, longest side, circumcenter, and apothem.
+	double pi = 3.141592654; // citation of the value for pi.
+	
+	cout << "You are entering the world of triangle" << endl; // prints "You are entering the world of triangle.
+	cout << "Enter value for side a: "; // input for side a
+	cin >> sideC;
+	cout << "Enter value for side b: "; // input for side b
+	cin >> sideA;
+	cout << "Enter value for side c: "; // input for side c.
+	cin >> sideB;
+	
+	angleA = acos((pow(sideC , 2) - pow(sideA , 2) - pow(sideB , 2)) / -(2 * sideA * sideB)); // equation for side a
+	angleB = acos((pow(sideA , 2) - pow(sideB , 2) - pow(sideC , 2)) / -(2 * sideB * sideC)); // equation for side b
+	angleC = acos((pow(sideB , 2) - pow(sideA , 2) - pow(sideC , 2)) / -(2 * sideA * sideC));// equation for side c.
+	cout << "Here are the solved interior angles of the triangle: " << endl; // prints solved interiors.
+	cout << "The angle between side b and side c is: " << (angleA / pi) * 180 << " degrees" << setprecision(4) << endl;// prints angle bc.
+	cout << "The angle between side a and side c is: " << (angleB / pi) * 180 << " degrees" << setprecision(4) << endl; // prints angle ac
+	cout << "The angle between side a and side b is: " << (angleC / pi) * 180 << " degrees" << setprecision(4) << endl; // prints angle ab
+	
+	if(sideB != sideC && sideA != sideC) // statement for scalene triangle.
+	{
+        cout << "It is a scalene triangle"; // prints description of triangle: scalene.
+	}
+	else if(sideA == sideC && sideA == sideB) // else if statement for equilateral triangle.
+	{
+        cout << "It is an equilateral triangle"; // prints description of triangangle: equilateral
+	}
+	else // else statement for other values of angles.
+	{
+        cout << "It is an isoceles triangle"; // prints description of angle: isoceles triangle.
+	}
+	cout << endl;
+	
+	Perimeter = sideA + sideB + sideC; // cites value of perimeter
+	cout << "The perimeter is: " << Perimeter << endl; // prints value of perimeter (equation).
+	
+	SemiPer = (sideA + sideB + sideC) / 2; // cites value of semi perimeter (equation).
+	Area = sqrt(SemiPer * (SemiPer - sideC) * (SemiPer - sideA) * (SemiPer - sideB)); // cites value of area (equation).
+	cout << "The area is: " << Area << setprecision(4)<< endl; // prints value of area.
+	
+	longest = sideC; // cites that longest side is equal to side C.
+	if(longest < sideA)// if statement if longest side is side A.
+	{
+		sideC = longest;
+		longest = sideA;
+		sideA = sideC;
+	}
+	if(longest < sideB)// if statement if longest side is side B
+	{
+		sideC = longest;
+		longest = sideB;
+		sideB = sideC;
+	}
+	
+	if(sideA * sideA + sideB * sideA > longest * longest)   // if statement for acute triangle
+	{
+		cout << "It is an acute triangle"; // prints acute triangle
+	}
+	else if(sideA * sideA + sideB * sideA == longest * longest) // else if statement for right triangle.
+	{
+		cout << "It is a right triangle"; // prints right triangle.
+	}
+	else // else statement for obtuse triangle.
+	{
+		cout << "It is an obtuse triangle"; // prints obtuse.
+	}
+	cout << endl;
+	
+	Apothem = sideA / (2 * tan(180/3)); // cites value of apothem
+	if(sideA == sideB && sideB == sideC) // if statement for apothem
+	cout << "The apothem is: " << Apothem << setprecision(2) << endl; // prints value of apothem
+	
+
+	Circumcenter = (sideA * sideB * sideC) / sqrt((sideA + sideB + sideC) * (-sideA + sideB + sideC) * (sideA - sideB + sideC) * (sideA + sideB - sideC)); // cites value or equation of circumcenter.
+	cout << "The circumcenter is: " << Circumcenter << setprecision(2) << endl; // prints value of circumcenter.
+	
+	
+	_getch();
+	return 0;
+
+}
