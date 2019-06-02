@@ -1,0 +1,162 @@
+#include <iostream> // initializes iostream for program functions (e.g. input output)
+#include <conio.h> // initializes conio.h for MS-DOS compiler
+#include <string> // initializes string for string variables.
+
+using namespace std; // scope for variable definitions.
+
+int main() // for process
+{
+	cout << "\n   NOTICE: Raw grades will be computed according to the following grade components\n\n";
+	cout << "     10% from the total grade comes from the Experiments\n";
+	cout << "     20% would be coming from the Skills test\n";
+	cout << "     20% for the 2 Machine problems (10% each)\n";
+	cout << "     50% for the Major Examinations (20% for the preliminary exams, 30% for the final exams)\n"; // prints notices, as well as definitions for computation of grades.
+	
+	string name[50]; // cites array of name with 50 lists.
+	
+    for (int a=0; a<50; a++) // first and main counter containing init, condition, and increment.
+	{
+		cout << "\n"; // new line
+		cout << " Students Name: "; // Printing "students name"
+		cin >> name[a]; // input for name
+		cout << "\n"; // new line
+
+	cout<<"  Grades of " << name[a] << endl; // statement that prints grades of entered name.
+		int exp[9], b; // sets list exp (experiments) with 9 rows, and b as integers.
+		float sum=0, avg, t; // sets sum, average, and t variables as float.
+
+	for(b=0; b<9; b++) // counter for grade experiments.
+	{
+		cout << "    For experiment " << b+1 << " = "; // outputs Experiment
+		cin>>exp[b]; // asks for grade input.
+        sum=sum+exp[b]; // cites variable sum equals sum plus entered value for exp[b]
+		avg=sum/9; // cites variable avg equals sum/9
+		t=(avg*0.1); // cites variable t equals average multiplied to 0.1
+	}
+
+	cout<<"\nYour raw Grade for experiment is: " << t << endl; // prints raw grade or variable t.
+	
+	cout << "\n"; // prints a new line.
+	
+	cout<<"  Grades of " << name[a] << endl; // prints grades of student name[a]
+		int skills[9], c; // cites integer variables skills[9] and c.
+		float s=0, ave, x; // cites float variables s, ave, and x.
+
+	for(c=0; c<9; c++) // initial counter for skills test.
+	{
+		cout << "    For Skills test " << c+1 << " = "; // prints demand for input
+		cin>>skills[c]; // input skills test
+		s=s+skills[c]; // cites s as skills test grade
+		ave=s/9; // cites ave variable as s/9
+		x=(ave*0.2); // cites x variable as average multiplied by 0.2
+	}
+
+	cout<<"\nYour raw Grade for skills test is: " << x << endl; // prints raw grade
+	
+	cout << "\n";
+
+	cout<<"  Grades of " << name[a] << endl; // prints grade of student for machine problems
+		int machine[2], d; // machine [2] and d as int variables.
+		float su=0, aver, r; // su, aver, and r as float variables.
+
+	for(d=0; d<2; d++) // counter statement for machine problems
+	{
+		cout << "    For machine problem " << d+1 << " = ";
+		cin>>machine[d];
+		su=su+machine[d];
+		aver=su/2;
+		r=(aver*0.2);
+	}
+
+	cout<<"\nYour raw Grade for machine problem is: " << r << endl; // Prints raw grade for machine problems
+	
+	cout << "\n";
+
+	cout<<"  Grades of " << name[a] << endl; // statement for prelims grade
+		int prelims[1], e; // prelims [1] and e as integer variables
+		float q; // q as a float variables
+
+	for(e=1; e<=1; e++) // counter statement for preliminary exams grade
+	{
+		cout << "    For Preliminary exam " << e << " = ";
+		cin>>prelims[e];
+		q=(prelims[e]*0.2);
+	}
+
+	cout<<"\nYour raw Grade for Prelim exam is: " << q << endl; // prints raw grade for prelims
+	
+	cout << "\n";
+
+	cout<<"  Grades of " << name[a] << endl; // statement for finals grade
+		int finals[1], f;
+		float z;
+
+	for(f=1; f<=1; f++) // counter statement for finals exam
+	{
+		cout << "    For Final exam " << f << " = ";
+		cin>>finals[f];
+		z=(finals[f]*0.3);
+	}
+
+	cout<<"\nYour raw Grade for Final exam is: " << z << endl; // raw grade for finals exam
+	
+	cout << "\n";
+
+	int total;
+	float l;
+				l=(t+x+q+r+z);
+	
+	cout << name[a] << ", " << "your total grade for this semester = " << l << endl; // prints total grade
+
+	cout <<"\n";
+	
+	cout<<" Your Transmuted Grade is "; // prints transmuted grade using else-if statements
+	if(l>=95.57 && l<=100)
+	{
+		cout<<"1.0";
+	}
+	else if(l>=91.12 && l<=95.56)
+	{
+		cout<<"1.25";
+	}
+	else if(l>=86.68 && l<=91.11)
+	{
+		cout<<"1.5";
+	}
+	else if(l>=82.23 && l<=86.67)
+	{
+		cout<<"1.75";
+	}
+	else if(l>=77.79 && l<=82.22)
+	{
+		cout<<"2.0";
+	}
+	else if(l>=73.34 && l<=77.78)
+	{
+		cout<<"2.25";
+	}
+	else if(l>=68.90 && l<=73.33)
+	{
+		cout<<"2.5";
+	}
+	else if(l>=64.45 && l<=68.89)
+	{
+		cout<<"2.75";
+	}
+	else if(l>=60.00 && l<=64.44)
+	{
+		cout<<"3.0";
+	}
+	else
+	{
+		cout<<"5.0";
+	}
+	
+	cout << "\n\n";
+	
+	system("pause"); //used so that you can analyze first your output before going on to another
+	system("cls"); // used to clear all the data you inout and start another one if necessary
+	}
+    _getch();
+	return 0;
+}
